@@ -173,6 +173,24 @@ func! CurrentFileDir(cmd)
     return a:cmd . " " . escape(expand("%:p:h"), " ") . "/"
 endfunc
 
+autocmd BufNewFile,BufRead *.mk setlocal filetype=make
+autocmd BufNewFile,BufRead *.make setlocal filetype=make
+autocmd BufNewFile,BufRead Makefile setlocal filetype=make
+
+autocmd BufNewFile,BufRead *.r setlocal filetype=r
+autocmd BufNewFile,BufRead *.R setlocal filetype=r
+autocmd BufNewFile,BufRead *.Rprofile setlocal filetype=r
+autocmd BufNewFile,BufRead *.Rhistory setlocal filetype=r
+autocmd BufNewFile,BufRead *.Rout setlocal filetype=rout
+autocmd BufNewFile,BufRead .bashrc setlocal filetype=sh
+
+autocmd BufNewFile,BufRead Snakefile* setlocal filetype=snakemake
+autocmd BufNewFile,BufRead *.smk setlocal filetype=snakemake
+autocmd BufNewFile,BufRead *.snake setlocal filetype=snakemake
+
+autocmd BufNewFile,BufRead *.config setlocal filetype=groovy
+autocmd BufNewFile,BufRead *.nf setlocal filetype=groovy
+
 "=================================================================================
 "
 "   Following file contains the commands on how to run the currently open code.

@@ -43,6 +43,19 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
+""""""""""""""""""""""""""""""
+" => Groovy section
+"""""""""""""""""""""""""""""""
+au FileType groovy call GroovyFold()
+function! GroovyFold()
+    setl autoindent
+    setl expandtab
+    setl shiftwidth=2
+    setl softtabstop=2
+    setl tabstop=2
+    setl foldmethod=indent
+    setl foldnestmax=3
+endfunction
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section
@@ -79,6 +92,22 @@ autocmd BufRead *.twig set syntax=html filetype=html
 """"""""""""""""""""""""""""""
 let vim_markdown_folding_disabled = 1
 
+""""""""""""""""""""""""""""""
+" => R
+""""""""""""""""""""""""""""""
+function! RScriptFold()
+    setl tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    "R output is highlighted with current colorscheme
+    let g:rout_follow_colorscheme = 1
+    "R commands in R output are highlighted
+    let g:Rout_more_colors = 1
+    "let r_syntax_folding = 1
+    setl foldmethod=marker
+    "settings :: Nvim-R plugin
+    nmap <LocalLeader>\ :RSend 
+    let R_assign=0
+endfunction
+au FileType r call RScriptFold()
 
 """"""""""""""""""""""""""""""
 " => YAML
